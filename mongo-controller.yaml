@@ -1,15 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-   name: mongo
+   name: mymongo
 spec:
   template:
     metadata:
       labels:
-        app: mongo
+        app: mymongo
     spec:
       containers:
-      - name: mongo
-        image: mongo
+      - name: mymongo
+        image: mymongo
         ports:
         - containerPort: 27017

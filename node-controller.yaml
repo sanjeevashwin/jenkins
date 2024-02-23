@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: full-stack
@@ -11,7 +11,11 @@ spec:
     spec:
       containers:
       - name: full-stack
-        image: jouman/node-image:full-stack
+        image: sanjeevashwin/kube
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
+        env:
+          - name: MONGO_URI
+            value: 'mongodb://mymongo:27017/full-stack'
+    
