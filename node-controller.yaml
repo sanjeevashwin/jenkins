@@ -1,9 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: full-stack
+  name: full-stack  # Adjust name if needed
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: full-stack
   template:
     metadata:
       labels:
@@ -11,11 +14,10 @@ spec:
     spec:
       containers:
       - name: full-stack
-        image: sanjeevashwin/kube
+        image: sanjeevashwin/fullstack
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
         env:
-          - name: MONGO_URI
-            value: 'mongodb://mymongo:27017/full-stack'
-    
+        - name: MONGO_URI
+          value: 'mongodb://mymongo:27017/full-stack'

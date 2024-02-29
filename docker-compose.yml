@@ -2,7 +2,7 @@ version: "3"
 
 services:
   full-stack:
-    image: kube
+    image: fullstack
     ports:
       - "5000:5000"
     networks:

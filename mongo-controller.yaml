@@ -1,8 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-   name: mymongo
+  name: mymongo  # Adjust name if needed
 spec:
+  replicas: 1  # Specify desired number of replicas (default is 1)
+  selector:
+    matchLabels:
+      app: mymongo
   template:
     metadata:
       labels:
@@ -10,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mymongo
-        image: mymongo
+        image: mongo:latest  # Provide specific image name or tag
         ports:
         - containerPort: 27017
